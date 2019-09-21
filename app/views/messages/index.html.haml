@@ -1,17 +1,27 @@
-.header
-  グループを作成しました
+%header
+  %h3 グループを作成しました
 .contents
-  .left-contents
-    .left-contents__top
-      saies
-    .left-contents__bottom
-      .left-contents__bottom__group
-        .left-contents__bottom__group__name
-          sample-group
-        .left-contents__bottom__group__message
-          hello!chat-space!
-  .right-contents
-    .right-contents__top
-      sample
-    .right-contents__bottom
-      sample
+  .side
+    .side__top
+      %p saies
+    .side__bottom
+      .side_bottom__group
+        .side__bottom__group
+          %a sample-group
+        .side__bottom__group__message
+          %p hello!chat-space!
+  .chat
+    .chat__top
+      .chat__top__left
+        %h4 sample group
+        %p  Member:saies
+      .chat__top__right
+        %h3 edit
+    .chat__middle
+      .chat__middle
+        -time = Time.now
+        %h3 saies #{time}
+        %p  hello!chat-space!
+    .chat__bottom
+      %textarea type a message
+      %p SEND
