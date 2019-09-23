@@ -1,22 +1,81 @@
 !!!
 %html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpaceSample
+    %meta{:content => "authenticity_token", :name => "csrf-param"}/
+    %meta{:content => "1q8adYf987nbNBL7bNYqkPvDCM3aK8hG9j4sdj9ZmjJD7ZwI9BJvmB/8vrXLzoAzwIVok8r3/Iyq28xjm+ovhA==", :name => "csrf-token"}/
+    %link{"data-turbolinks-track" => "reload", :href => "/assets/application-20597f7122b97f433c4487edf7d6a0cfc9e951e2a661b8b0c7320b95bbd38ccd.css", :media => "all", :rel => "stylesheet"}/
+    %script{"data-turbolinks-track" => "reload", :src => "/assets/application-92a91cf5753a538c5407a46c726acab43576fb46358ffa8a7ee0ee0719aa2f51.js"}
   %body
-    %header
-    .side
-      .top
-        %h2 saies
-      .bottom
-        %h2 group
-        %p message
-      .chat
-        .top
-          .left
-            %h2 group
-            %p member
-          .right
-            %h3 edit
-        .middle
-          %p member
-          %p message
-        .bottom
-          %h3 text
+    .flash-box
+    .wrapper
+      .chat-side
+        .side-header
+          .side-header__box
+            %p.side-header__box__user-name saies
+            %ul.side-header__box__menu
+              %li.side-header__box__menu__new-group
+                %a{:href => "/groups/new"}
+                  %i.fa.fa-edit
+              %li.side-header__box__menu__edit-user
+                %a{:href => "/users/707/edit"}
+                  %i.fa.fa-cog
+        .groups
+          %a{:href => "/groups/1330/messages"}
+            .group
+              %p.group__group-name chat-spaceの体験
+              %p.group__latest-message ここが部分テンプレートで使えると思われる
+          %a{:href => "/groups/1359/messages"}
+            .group
+              %p.group__group-name f
+              %p.group__latest-message クァwせdRftgyふじこlp；＠：「
+          %a{:href => "/groups/1570/messages"}
+            .group
+              %p.group__group-name test
+              %p.group__latest-message まだメッセージがありません
+          %a{:href => "/groups/1575/messages"}
+            .group
+              %p.group__group-name test2
+              %p.group__latest-message まだメッセージがありません
+      .chat-main
+        .main-header
+          .main-header__left-box
+            %h2.main-header__left-box__current-group{"data-group_id" => "1330"}
+              chat-spaceの体験
+            %ul.main-header__left-box__member-list
+              Member：
+              %li.main-header__left-box__member-list__member saies
+          %a{:href => "/groups/1330/edit"}
+            .main-header__edit-btn Edit
+        .messages
+          .message{"data-message_id" => "4112"}
+            .message__upper-info
+              %p.message__upper-info__talker saies
+              %p.message__upper-info__date 2019/09/21(Sat) 12:35:54
+            %p.message__text chat-spaceのコード分析中
+          .message{"data-message_id" => "4113"}
+            .message__upper-info
+              %p.message__upper-info__talker saies
+              %p.message__upper-info__date 2019/09/21(Sat) 12:36:07
+            %p.message__text ここが部分テンプレートで使えると思われる
+          .message{"data-message_id" => "4114"}
+            .message__upper-info
+              %p.message__upper-info__talker saies
+              %p.message__upper-info__date 2019/09/21(Sat) 12:38:02
+            %p.message__text _tweetsと_groupsがあればいい
+          .message{"data-message_id" => "4115"}
+            .message__upper-info
+              %p.message__upper-info__talker saies
+              %p.message__upper-info__date 2019/09/21(Sat) 12:42:58
+            %p.message__text _groups{(name),(render (groups.name,groups.messages[0])}  _messages{(groups.name,groups.user),(render(user_name,message))}
+        .form
+          %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/1330/messages", :enctype => "multipart/form-data", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "cJv9VUDoRTUuSYFT5g30u/3j+Gci5eOT84MZN9AaRYhwDGmMIuH9cImT3YDXnO+AYevldbDZLC9rCydgj2/VRQ=="}/
+            .input-box
+              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+              %label.input-box__image{:for => "message_image"}
+                %i.fa.fa-image
+                %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
+            %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/

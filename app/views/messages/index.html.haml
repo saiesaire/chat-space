@@ -1,27 +1,44 @@
-%header
-  %h3 グループを作成しました
-.contents
-  .side
-    .side__top
-      %p saies
-    .side__bottom
-      .side_bottom__group
-        .side__bottom__group
-          %a sample-group
-        .side__bottom__group__message
-          %p hello!chat-space!
-  .chat
-    .chat__top
-      .chat__top__left
-        %h4 sample group
-        %p  Member:saies
-      .chat__top__right
-        %h3 edit
-    .chat__middle
-      .chat__middle
-        -time = Time.now
-        %h3 saies #{time}
-        %p  hello!chat-space!
-    .chat__bottom
-      %textarea type a message
-      %p SEND
+!!!
+%html
+  %body
+    .header
+      %h3 グループを作成しました
+    .contents
+      .chat-side
+        .chat-side__side-header
+          .chat-side__side-header__box
+            %p saies
+            %li
+              %i.fa.fa-edit
+              %i.fa.fa-cog
+        .chat-side__bottom
+          .chat-side__bottom__group
+            .chat-side__bottom__group__name
+              %p sample-group
+            .chat-side__bottom__group__message
+              %p hello!chat-space!
+      .chat
+        .chat__top
+          .chat__top__left
+            %h2 chat-spaceの体験
+            %p Member:saies
+          .chat__top__right
+            %p Edit
+        .chat__messages
+          .chat__messages__message
+            .chat__messages__message__info
+              -time = Time.new
+              -wday = ["日", "月", "火", "水", "木", "金", "土"]
+              .chat__messages__message__info__talker
+                saies
+              .chat__messages__message__info__date #{time.year}/#{time.mon}/#{time.day}(#{wday[time.wday]}) #{time.hour}:#{time.min}:#{time.sec}
+            %p  hello!chat-space!
+        .chat__form
+          .chat__form__box
+            .chat__form__box__textarea
+              %p type a message
+              %i.fa.fa-image
+            .chat__form__box__send
+              %p Send
+
+          

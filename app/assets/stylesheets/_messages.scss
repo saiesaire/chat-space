@@ -1,38 +1,52 @@
-header{
+.header{
+  position: fixed;
   height: 20px;
-  background-color: #38AEF0;
-  color: #fff;
+  width: 100%;
+  background-color: $blue;
+  color: $white;
   text-align: center;
+  top: 0px;
 }
 
 .contents{
   display: flex;
-  height: calc(100vh - 20px);
-  .side {
+  margin-top: 20px;
+  bottom: 0px;
+  .chat-side {
     width: 300px;
-    color:#ffffff;
-    text-indent: 20px;
-      &__top{
+    color: $white;
+    float: left;
+      &__side-header{
         background-color: #253141;
-        height: 82px;
-        font-size: 17px;
-        font-weight: bold;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        &__box{
+          display: flex;
+          width: 100%;
+          font-weight: bold;
+          justify-content: space-between;
+          li{
+            list-style: none;
+          }
+        }
       }
       &__bottom{
         background-color: #2f3e51;
-        height: 100%;
+        height: calc(100vh - 100px);
+        padding: 20px 20px 0;
+        overflow: scroll;
           &__group{
-            height: 31px;
-            padding-top: 20px;
-            h4 {
+            height: 51px;
+            margin-bottom: 40px;
+            &__name{
               font-size: 15px;
-              font-weight: bold;
+              margin-bottom: 5px;
             }
-            p {
+            
+            &__message{
               font-size: 11px;
-              font-weight: bold;
-              margin-top:5px;
-              margin-bottom: 20px;
             }
           }
           
@@ -41,74 +55,110 @@ header{
   
   .chat{
     width: calc(100vw - 300px);
-    color:#333333;
-    text-indent: 40px;
+    color: $dark-grey;
+    float: left;
     &__top{
-      height: 82px;
+      height: 100px;
+      padding: 0 40px;
+      background-color: $white;
       display: flex;
-      background-color: #eeeeee;
-      border-bottom: medium solid #eeeeee;
+      justify-content: space-between;
+      border-bottom: solid 1px #eee;
+      overflow: scroll;
         &__left{
-          height: 82px;
-          a {
-            height: 55px;
+          margin-top: 35px;
+          h2 {
             font-size: 20px;
-            color: #333333;
-            margin-top: 35px;
-            padding-bottom: 0px;
+            color: $dark-grey;
+            margin-bottom: 15px;
           }
           p {
-            height: 27px;
             font-size: 12px;
             color: #999999;
-            margin-top: 15px;
           }
         }
         &__right{
-          height: 40px;
-          font-size: 40px;
-          color: #38AEF0;
-          border-color: #38AEF0;
+          color: $blue;
           margin-left: auto;
-          padding-left: 20px;
-          padding-right: 20px;
           p {
-            margin-top: 28px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            margin-top: 30px;
+            border:solid 1px $blue;
+            right: 40px;
           }
         }
     }
-    &__middle{
-      height: calc(100% - 82px - 70px);
+    &__messages{
+      height: calc(100vh - 262px);
+      padding: 46px 40px;
       background-color: #fafafa;
-      padding-top: 46px;
-      h3 {
-        font-size: 16px;
-        color: #434a54;
-        font-weight: bold;
+      overflow: scroll;
+      &__message{
+        &__info{
+          display: flex;
+          margin-bottom: 10px;
+          &__talker{
+            font-size: 16px;
+            color: $min-dark-grey;
+            font-weight: bold;
+          }
+          &__date {
+            font-size: 12px;
+            color: #999999;
+            margin-left: 10px;
+          }
+        }
+        
+        p {
+          font-size: 14px;
+          color: $min-dark-grey;
+        }
       }
-      p {
-        font-size: 14px;
-        color: #434a54;
-      }
+      
     }
-    &__bottom{
-      height: 70px;
-      background-color: #fafafa;
-      padding: 10px;
-      display: flex;
-      textarea{
-        height: 50px;
-        width: 70%;
-        font-size: 16px;
-        color: #434a54;
-        padding-left: 10px;
-        margin-right: 10px;
+    &__form{
+      padding: 20px 40px;
+      background-color: #ddd;      
+      &__box{
+        display: flex;
+        position: relative;
+        width: 100%;
+        justify-content: space-between;
+        &__textarea{ 
+          background-color: $white;
+          width: 100%;
+          font-size: 16px;
+          color: #434a54;
+          display: flex;
+          justify-content: space-between;
+          overflow: scroll;
+          p{
+            height: 50px;
+            line-height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+          }
+          i{
+            position: absolute;
+            top: 15px;
+            right: 125px;
+            font-size: 1.3rem;
+          }
+        }
+        
+        &__send{
+          height: 50px;
+          padding:0 30px;
+          margin-left: 15px;
+          background-color: $blue;
+          color: $white;
+          text-align: center;
+          line-height: 50px;
+        }
       }
-
-      p{
-        background-color: #38aef0;
-        margin-left: 15px;
-      }
+      
     }
   }
 }
