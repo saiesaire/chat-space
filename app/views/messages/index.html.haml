@@ -18,7 +18,7 @@
       .message
         = render @messages
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message] ,class: 'message_submit' do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         .form__mask
           = f.label :image, class: 'form__mask__image' do

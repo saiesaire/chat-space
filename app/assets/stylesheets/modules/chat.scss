@@ -1,9 +1,11 @@
 .chat {
   width: calc(100% - 300px);
+  height: 100vh;
   .header {
     box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
+    overflow: scroll;
     .left-header {
       float: left;
       &__title {
@@ -42,8 +44,11 @@
     box-sizing: border-box;
     padding: 46px 40px 0;
     height: calc(100% - 100px - 90px);
+    width: calc(100vw - 300px);
+    overflow: scroll;
     .message {
       .upper-message {
+        max-width: 450px;
         display: flex;
         &__user-name {
           color: $black;
