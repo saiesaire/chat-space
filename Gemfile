@@ -72,3 +72,7 @@ end
 
 gem 'pry-rails'
 gem 'rb-readline'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
