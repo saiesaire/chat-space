@@ -66,6 +66,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'fog-aws'
+
 group :test, :development do
   gem 'capybara'
 end
@@ -84,3 +86,4 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+
