@@ -12,8 +12,8 @@
           - @group.users.each do |user|
             = user.name
       .right-header
-        .right-header__button
-          = link_to 'edit', edit_group_path(@group), class: "edit_btn", data: {"turbolinks" => false}
+        .right-header__edit-box
+          = link_to 'Edit', edit_group_path(@group), class: "edit_btn"
     .messages
       .message
         = render @messages
